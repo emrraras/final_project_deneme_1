@@ -1,8 +1,8 @@
 
 # from bs4 import BeautifulSoup
 # import requests
-
-
+import pytesseract
+import cv2
 
 # url1="https://www.buski.gov.tr/AboneRehberi/AboneRehberi/7" #çalışacağmız site
 # r=requests.get(url1,verify=False) #
@@ -116,29 +116,29 @@
 
 
 # def oku():
-    
-#     def ocr_core(img):
-#         text = pytesseract.image_to_string(img)
-#         return text
+# pytesseract.pytesseract.tesseract_cmd = 'C:\\Program Files\\Tesseract-OCR\\tesseract.exe'  
+# def ocr_core(img):
+#     text = pytesseract.image_to_string(img)
+#     return text
         
 
-#     img =cv2.imread('D:\\Visual Studio\\final_project\\opencv_frame_0.png')  # okunacak resimin konumu
+# img =cv2.imread('C:\\Users\\emrea\\Desktop\\Coding\\final_project_deneme_1\\aa.png')  # okunacak resimin konumu
 
-#     def get_grayscale(image):
-#         return cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
+# def get_grayscale(image):
+#     return cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
 
-#     def remove_noise(image):
-#         return cv2.medianBlur(image,5)
+# def remove_noise(image):
+#     return cv2.medianBlur(image,5)
 
-#     def thresholding(image):
-#         return cv2.threshold(image,0,255,cv2.THRESH_BINARY + cv2.THRESH_OTSU)[1]
+# def thresholding(image):
+#     return cv2.threshold(image,0,255,cv2.THRESH_BINARY + cv2.THRESH_OTSU)[1]
 
-#     img = get_grayscale(img)
-#     img= thresholding(img)
-#     img=remove_noise(img)
+# img = get_grayscale(img)
+# img= thresholding(img)
+# img=remove_noise(img)
 
-#     print(ocr_core(img))
-#     print(type(ocr_core(img)))
+# print(ocr_core(img))
+# print(type(ocr_core(img)))
 
 
 # while True:
@@ -244,34 +244,42 @@
 
 # cv2.destroyAllWindows(0)
         
-import cv2
-from PIL import Image
-im1 =  Image.open('D:\\Visual Studio\\final_project_deneme_1\\aa.jpg')
-im1.save('D:\\Visual Studio\\final_project_deneme_1\\aa.png')
+# import cv2
+# from PIL import Image
+# im1 =Image.open('C:\\Users\\emrea\\Desktop\\Coding\\final_project_deneme_1\\aa.jpg')
+# im1.save('C:\\Users\\emrea\\Desktop\\Coding\\final_project_deneme_1\\aa.png')
 
-def oku():
-    import cv2
-    import pytesseract
-    def ocr_core(img):
-        text = pytesseract.image_to_string(img)
-        return text
+# def oku():
+#     import cv2
+#     import pytesseract
+#     def ocr_core(img):
+#         text = pytesseract.image_to_string(img)
+#         return text
         
 
-    img =cv2.imread('D:\\Visual Studio\\final_project_deneme_1\\aa.png')  # okunacak resimin konumu
+#     img =cv2.imread('C:\\Users\\emrea\\Desktop\\Coding\\final_project_deneme_1\\aa.png')  # okunacak resimin konumu
 
-    def get_grayscale(image):
-        return cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
+#     def get_grayscale(image):
+#         return cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
 
-    def remove_noise(image):
-        return cv2.medianBlur(image,5)
+#     def remove_noise(image):
+#         return cv2.medianBlur(image,5)
 
-    def thresholding(image):
-        return cv2.threshold(image,0,255,cv2.THRESH_BINARY + cv2.THRESH_OTSU)[1]
+#     def thresholding(image):
+#         return cv2.threshold(image,0,255,cv2.THRESH_BINARY + cv2.THRESH_OTSU)[1]
 
-    img = get_grayscale(img)
-    img= thresholding(img)
-    img=remove_noise(img)
+#     img = get_grayscale(img)
+#     img= thresholding(img)
+#     img=remove_noise(img)
 
-    print(ocr_core(img))
-    print(type(ocr_core(img)))
-oku()
+#     print(ocr_core(img))
+#     print(type(ocr_core(img)))
+# oku()
+from PIL import Image
+import pytesseract
+
+pytesseract.pytesseract.tesseract_cmd = 'C:\\Users\\emrea\\Desktop\\Coding\\yeni_d-zen\\New folder\\tesseract.exe'
+
+a=pytesseract.image_to_string(Image.open('abc.png'), lang="eng")
+
+print(a)
